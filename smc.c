@@ -451,7 +451,7 @@ kern_return_t SMCPrintTemp(void)
     for (i = 0; i < sizeof(temp_keys)/sizeof(temp_keys[0]); ++i) {
         double temp;
         temp = SMCGetTemperature(temp_keys[i].key);
-        if (temp != 0)
+        if (temp > 0)
             printf(" %20s : %g\n", temp_keys[i].name, temp);
     }
     return kIOReturnSuccess;
